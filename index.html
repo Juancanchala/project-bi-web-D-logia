@@ -1,16 +1,436 @@
-<!DOCTYPE html>
+<h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                <span>📊</span>
+                Clientes por Tipo
+              </h3>
+              <div class="chart-container">
+                <canvas id="clientesTipoChart" width="400" height="280"></canvas>
+                <div id="clientesTipoChart-placeholder" class="chart-placeholder hidden">
+                  <div class="text-4xl mb-2">📊</div>
+                  <p>Distribución por tipo de cliente</p>
+                  <p class="text-sm text-gray-400">Cargando datos...</p>
+                </div>
+              </div>
+            </div>
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
+                <span>📍</span>
+                Clientes por Ciudad
+              </h3>
+              <div class="chart-container">
+                <canvas id="clientesRegionChart" width="400" height="280"></canvas>
+                <div id="clientesRegionChart-placeholder" class="chart-placeholder hidden">
+                  <div class="text-4xl mb-2">📍</div>
+                  <p>Distribución geográfica</p>
+                  <p class="text-sm text-gray-400">Cargando datos...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabla de Clientes -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 card-hover">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+              <h3 class="text-lg font-semibold flex items-center gap-2 mb-4 md:mb-0">
+                <span>📋</span>
+                Base de Datos de Clientes
+              </h3>
+              <div class="flex gap-3">
+                <input type="text" placeholder="Buscar cliente..." 
+                       class="border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg text-sm dark:bg-gray-700 focus:ring-2 focus:ring-blue-500">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
+                  Añadir Cliente
+                </button>
+              </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full data-table">
+                <thead>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Cliente</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Tipo</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Ciudad</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Última Compra</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Valor Total</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="border-b border-gray-100 dark:border-gray-700">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">AT</div>
+                        <div>
+                          <p class="font-medium">Ana Torres</p>
+                          <p class="text-xs text-gray-500">ana@empresa.com</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4">
+                      <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Empresarial</span>
+                    </td>
+                    <td class="py-4 px-4">Medellín</td>
+                    <td class="py-4 px-4 text-gray-500">2025-06-22</td>
+                    <td class="py-4 px-4 font-semibold text-green-600">$4,200</td>
+                    <td class="py-4 px-4">
+                      <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Activo</span>
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">JP</div>
+                        <div>
+                          <p class="font-medium">Juan Pérez</p>
+                          <p class="text-xs text-gray-500">juan@restaurante.com</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4">
+                      <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Emprendedor</span>
+                    </td>
+                    <td class="py-4 px-4">Bogotá</td>
+                    <td class="py-4 px-4 text-gray-500">2025-06-21</td>
+                    <td class="py-4 px-4 font-semibold text-green-600">$1,890</td>
+                    <td class="py-4 px-4">
+                      <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Activo</span>
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold">LR</div>
+                        <div>
+                          <p class="font-medium">Laura Ríos</p>
+                          <p class="text-xs text-gray-500">laura@personal.com</p>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4">
+                      <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Individual</span>
+                    </td>
+                    <td class="py-4 px-4">Cali</td>
+                    <td class="py-4 px-4 text-gray-500">2025-03-10</td>
+                    <td class="py-4 px-4 font-semibold text-green-600">$850</td>
+                    <td class="py-4 px-4">
+                      <span class="bg-red-100 text-red-800 px-3 py-1 rounded-full text-xs font-medium">Inactivo</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ░░░ OTRAS SECCIONES ░░░ -->
+        <div id="inventario" class="seccion hidden animate-fade-in">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>📦</span>
+            Gestión de Inventario
+          </h2>
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center">
+            <div class="text-6xl mb-4">📦</div>
+            <h3 class="text-xl font-semibold mb-2">Inventario y Productos</h3>
+            <p class="text-gray-600 dark:text-gray-400">Gestión completa de productos, servicios y catálogo coming soon...</p>
+          </div>
+        </div>
+
+        <div id="reportes" class="seccion hidden animate-fade-in">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>📈</span>
+            Centro de Reportes
+          </h2>
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center">
+            <div class="text-6xl mb-4">📈</div>
+            <h3 class="text-xl font-semibold mb-2">Generación de Reportes</h3>
+            <p class="text-gray-600 dark:text-gray-400">Reportes automáticos, exportación y análisis avanzado coming soon...</p>
+          </div>
+        </div>
+
+        <div id="configuracion" class="seccion hidden animate-fade-in">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>⚙️</span>
+            Configuración del Sistema
+          </h2>
+          
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
+                  <span class="text-white text-xl">🎨</span>
+                </div>
+                <h3 class="text-lg font-semibold">Personalización</h3>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Personaliza la apariencia del dashboard</p>
+              <div class="space-y-4">
+                <div class="flex items-center justify-between">
+                  <span class="text-sm">Tema Oscuro</span>
+                  <button onclick="toggleTema()" class="w-12 h-6 bg-gray-300 dark:bg-blue-600 rounded-full relative transition-colors">
+                    <div class="w-4 h-4 bg-white rounded-full shadow-md transform transition-transform dark:translate-x-6 translate-x-1 mt-1"></div>
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
+                  <span class="text-white text-xl">🔐</span>
+                </div>
+                <h3 class="text-lg font-semibold">Seguridad</h3>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Configuración de seguridad y acceso</p>
+              <div class="space-y-3">
+                <button class="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                  Cambiar contraseña
+                </button>
+                <button class="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
+                  Autenticación 2FA
+                </button>
+              </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <div class="flex items-center gap-4 mb-4">
+                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                  <span class="text-white text-xl">🧩</span>
+                </div>
+                <h3 class="text-lg font-semibold">Integraciones</h3>
+              </div>
+              <p class="text-gray-600 dark:text-gray-400 mb-4">Conecta con herramientas externas</p>
+              <div class="space-y-3">
+                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                  <span class="text-sm">Google Sheets</span>
+                  <span class="text-green-500 text-sm">●</span>
+                </div>
+                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
+                  <span class="text-sm">WhatsApp API</span>
+                  <span class="text-red-500 text-sm">●</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- ▒▒▒ JAVASCRIPT MEJORADO Y ESTABLE ▒▒▒ -->
+  <script>
+    console.log('🚀 Iniciando Dashboard D\'LOGIA...');
+
+    // ░░░ DATOS CENTRALIZADOS ░░░
+    const DashboardData = {
+      kpisPrincipales: {
+        ventasMes: 4305,
+        ingresosTotales: 15621,
+        clientesNuevos: 35,
+        crecimiento: 12.5
+      },
+      
+      ventasMensuales: [1200, 1900, 3000, 2500, 3200, 4305],
+      
+      productosDistribucion: {
+        labels: ['Dashboards', 'Páginas Web', 'Automatizaciones'],
+        valores: [45, 30, 25],
+        colores: ['#3b82f6', '#10b981', '#8b5cf6']
+      },
+      
+      clientesData: {
+        tipos: {
+          labels: ['Empresarial', 'Emprendedor', 'Individual'],
+          valores: [40, 35, 25],
+          colores: ['#10b981', '#3b82f6', '#f59e0b']
+        },
+        regiones: {
+          labels: ['Bogotá', 'Medellín', 'Cali', 'Otras'],
+          valores: [20, 15, 10, 5],
+          colores: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
+        }
+      }
+    };
+
+    // ░░░ SISTEMA DE GRÁFICAS CON MANEJO DE ERRORES ░░░
+    let chartsInstances = {};
+
+    // ░░░ NAVEGACIÓN ENTRE SECCIONES ░░░
+    function cambiarSeccion(seccionId) {
+      console.log(`🔄 Cambiando a sección: ${seccionId}`);
+      
+      // Ocultar todas las secciones
+      document.querySelectorAll('.seccion').forEach(seccion => {
+        seccion.classList.add('hidden');
+      });
+      
+      // Remover clase activa
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Mostrar sección seleccionada
+      const seccionTarget = document.getElementById(seccionId);
+      if (seccionTarget) {
+        seccionTarget.classList.remove('hidden');
+      }
+      
+      // Activar nav item
+      const navItem = document.getElementById(`nav-${seccionId}`);
+      if (navItem) {
+        navItem.classList.add('active');
+      }
+      
+      // Actualizar títulos
+      actualizarTituloSeccion(seccionId);
+      
+      // Inicializar gráficas con delay y manejo de errores
+      setTimeout(() => {
+        try {
+          inicializarGraficasSeccion(seccionId);
+        } catch (error) {
+          console.warn('⚠️ Error al inicializar gráficas:', error);
+          mostrarPlaceholders(seccionId);
+        }
+      }, 300);
+    }
+
+    // ░░░ ACTUALIZAR TÍTULOS ░░░
+    function actualizarTituloSeccion(seccionId) {
+      const titulo = document.getElementById('titulo-seccion');
+      const subtitulo = document.getElementById('subtitulo-seccion');
+      
+      const titulos = {
+        dashboard: {
+          titulo: 'Panel de Control',
+          subtitulo: 'Bienvenido de vuelta, aquí tienes un resumen de tu negocio'
+        },
+        ventas: {
+          titulo: 'Análisis de Ventas',
+          subtitulo: 'Análisis detallado del rendimiento comercial'
+        },
+        clientes: {
+          titulo: 'Gestión de Clientes',
+          subtitulo: 'Base de datos y análisis de clientes'
+        },
+        inventario: {
+          titulo: 'Gestión de Inventario',
+          subtitulo: 'Catálogo de productos y servicios'
+        },
+        reportes: {
+          titulo: 'Centro de Reportes',
+          subtitulo: 'Generación y gestión de reportes'
+        },
+        configuracion: {
+          titulo: 'Configuración',
+          subtitulo: 'Personalización y configuración del sistema'
+        }
+      };
+      
+      if (titulos[seccionId] && titulo && subtitulo) {
+        titulo.textContent = titulos[seccionId].titulo;
+        subtitulo.textContent = titulos[seccionId].subtitulo;
+      }
+    }
+
+    // ░░░ INICIALIZAR GRÁFICAS CON VERIFICACIÓN ░░░
+    function inicializarGraficasSeccion(seccionId) {
+      // Verificar si Chart.js está disponible
+      if (typeof Chart === 'undefined') {
+        console.warn('⚠️ Chart.js no está disponible, mostrando placeholders');
+        mostrarPlaceholders(seccionId);
+        return;
+      }
+
+      console.log(`📊 Inicializando gráficas para: ${seccionId}`);
+      
+      try {
+        switch(seccionId) {
+          case 'dashboard':
+            inicializarGraficasDashboard();
+            break;
+          case 'clientes':
+            inicializarGraficasClientes();
+            break;
+        }
+      } catch (error) {
+        console.error('❌ Error al inicializar gráficas:', error);
+        mostrarPlaceholders(seccionId);
+      }
+    }
+
+    // ░░░ MOSTRAR PLACEHOLDERS SI FALLAN LAS GRÁFICAS ░░░
+    function mostrarPlaceholders(seccionId) {
+      const placeholders = document.querySelectorAll(`#${seccionId} .chart-placeholder`);
+      const canvases = document.querySelectorAll(`#${seccionId} canvas`);
+      
+      canvases.forEach(canvas => canvas.style.display = 'none');
+      placeholders.forEach(placeholder => placeholder.classList.remove('hidden'));
+    }
+
+    // ░░░ GRÁFICAS DEL DASHBOARD ░░░
+    function inicializarGraficasDashboard() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const textColor = isDark ? '#f9fafb' : '#1f2937';
+
+      // Limpiar gráficas existentes
+      if (chartsInstances.ventasDashboard) chartsInstances.ventasDashboard.destroy();
+      if (chartsInstances.productosDashboard) chartsInstances.productosDashboard.destroy();
+
+      // Gráfica de Ventas Mensuales
+      const ctxVentas = document.getElementById('ventasChart');
+      if (ctxVentas) {
+        try {
+          chartsInstances.ventasDashboard = new Chart(ctxVentas, {
+            type: 'line',
+            data: {
+              labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
+              datasets: [{
+                label: 'Ventas ($)',
+                data: DashboardData.ventasMensuales,
+                backgroundColor: 'rgba(59, 130, 246, 0.1)',
+                borderColor: '#3b82f6',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4,
+                pointBackgroundColor: '#3b82f6',
+                pointBorderColor: '#ffffff',
+                pointBorderWidth: 2,
+                pointRadius: 6
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: { display: false }
+              },
+              scales: {
+                x: {
+                  ticks: { color: textColor }
+                },
+                y: {
+                  ticks: { 
+                    color: textColor,
+                    callback: function(value) {
+                      return '<!DOCTYPE html>
 <html lang="es" class="dark">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard PRO – D'LOGIA</title>
+  
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+  
+  <!-- Chart.js - Versión estable -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
   <script>
+    // Configuración de Tailwind
     tailwind.config = { 
       darkMode: 'class',
       theme: {
@@ -20,14 +440,13 @@
           },
           animation: {
             'fade-in': 'fadeIn 0.5s ease-in-out',
-            'slide-up': 'slideUp 0.3s ease-out',
-            'pulse-soft': 'pulseSoft 2s ease-in-out infinite',
-            'bounce-soft': 'bounceSoft 1s ease-in-out'
+            'slide-up': 'slideUp 0.3s ease-out'
           }
         }
       }
     };
   </script>
+  
   <style>
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
@@ -36,24 +455,6 @@
     @keyframes slideUp {
       from { transform: translateY(20px); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
-    }
-    @keyframes pulseSoft {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.02); }
-    }
-    @keyframes bounceSoft {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-5px); }
-    }
-    
-    .gradient-bg {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    }
-    
-    .glass-effect {
-      backdrop-filter: blur(10px);
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
     }
     
     .card-hover {
@@ -130,6 +531,21 @@
       background: linear-gradient(45deg, #059669, #047857);
       transform: translateY(-2px);
     }
+
+    /* Fallback para cuando no cargan las gráficas */
+    .chart-container {
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .chart-placeholder {
+      color: #6b7280;
+      text-align: center;
+      padding: 2rem;
+    }
   </style>
 </head>
 <body class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white transition-colors duration-300 font-sans">
@@ -143,7 +559,7 @@
   </div>
 
   <div class="flex h-screen">
-    <!-- ▒▒▒ SIDEBAR MEJORADO ▒▒▒ -->
+    <!-- ▒▒▒ SIDEBAR ▒▒▒ -->
     <aside class="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 hidden md:flex flex-col p-6 shadow-xl relative overflow-hidden">
       <!-- Logo -->
       <div class="mb-10 animate-fade-in">
@@ -187,7 +603,7 @@
       <!-- Footer del sidebar -->
       <div class="mt-auto pt-6 border-t border-gray-200 dark:border-gray-700">
         <div class="flex items-center gap-3 p-2">
-          <img src="https://i.pravatar.cc/40" class="w-8 h-8 rounded-full">
+          <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">JC</div>
           <div class="text-xs">
             <p class="font-medium">Usuario Admin</p>
             <p class="text-gray-500">Premium</p>
@@ -199,14 +615,14 @@
     <!-- ▒▒▒ CONTENIDO PRINCIPAL ▒▒▒ -->
     <main class="flex-1 overflow-y-auto">
       
-      <!-- ░░░ CABECERA MEJORADA ░░░ -->
+      <!-- ░░░ CABECERA ░░░ -->
       <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 shadow-sm">
         <div class="flex justify-between items-center">
           <div>
-            <h1 class="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+            <h1 id="titulo-seccion" class="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
               Panel de Control
             </h1>
-            <p class="text-gray-500 dark:text-gray-400 mt-1">Bienvenido de vuelta, aquí tienes un resumen de tu negocio</p>
+            <p id="subtitulo-seccion" class="text-gray-500 dark:text-gray-400 mt-1">Bienvenido de vuelta, aquí tienes un resumen de tu negocio</p>
           </div>
           
           <div class="flex gap-4 items-center">
@@ -228,12 +644,13 @@
             </button>
             
             <!-- Avatar del usuario -->
-            <img src="https://i.pravatar.cc/40" class="w-10 h-10 rounded-full ring-2 ring-blue-500 cursor-pointer">
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold cursor-pointer">JC</div>
           </div>
         </div>
       </header>
 
       <div class="p-6">
+        
         <!-- ░░░ SECCIÓN 1: DASHBOARD PRINCIPAL ░░░ -->
         <div id="dashboard" class="seccion animate-fade-in">
           
@@ -245,7 +662,7 @@
                   <h3 class="text-sm font-medium opacity-90">Ventas del Mes</h3>
                   <span class="text-2xl">💰</span>
                 </div>
-                <p class="text-3xl font-bold mb-1" id="kpi-ventas-mes">$4,100</p>
+                <p class="text-3xl font-bold mb-1" id="kpi-ventas-mes">$4,305</p>
                 <p class="text-xs opacity-75">+12% vs mes anterior</p>
               </div>
             </div>
@@ -256,7 +673,7 @@
                   <h3 class="text-sm font-medium opacity-90">Ingresos Totales</h3>
                   <span class="text-2xl">📈</span>
                 </div>
-                <p class="text-3xl font-bold mb-1" id="kpi-ingresos">$15,900</p>
+                <p class="text-3xl font-bold mb-1" id="kpi-ingresos">$15,621</p>
                 <p class="text-xs opacity-75">+8.5% crecimiento</p>
               </div>
             </div>
@@ -297,7 +714,14 @@
                   <option>Último año</option>
                 </select>
               </div>
-              <canvas id="ventasChart" class="w-full" style="height: 280px;"></canvas>
+              <div class="chart-container">
+                <canvas id="ventasChart" width="400" height="280"></canvas>
+                <div id="ventasChart-placeholder" class="chart-placeholder hidden">
+                  <div class="text-4xl mb-2">📈</div>
+                  <p>Gráfica de ventas mensuales</p>
+                  <p class="text-sm text-gray-400">Cargando datos...</p>
+                </div>
+              </div>
             </div>
             
             <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
@@ -308,11 +732,18 @@
                 </h3>
                 <button class="text-sm text-blue-600 hover:text-blue-800">Ver detalles</button>
               </div>
-              <canvas id="productosChart" class="w-full" style="height: 280px;"></canvas>
+              <div class="chart-container">
+                <canvas id="productosChart" width="400" height="280"></canvas>
+                <div id="productosChart-placeholder" class="chart-placeholder hidden">
+                  <div class="text-4xl mb-2">🧩</div>
+                  <p>Distribución por producto</p>
+                  <p class="text-sm text-gray-400">Cargando datos...</p>
+                </div>
+              </div>
             </div>
           </div>
 
-          <!-- 🔹 Tabla de Transacciones Mejorada -->
+          <!-- 🔹 Tabla de Transacciones -->
           <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 card-hover">
             <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
               <h3 class="text-lg font-semibold flex items-center gap-2 mb-4 md:mb-0">
@@ -343,7 +774,7 @@
                   <tr class="border-b border-gray-100 dark:border-gray-700">
                     <td class="py-4 px-4">
                       <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/32?img=1" class="w-8 h-8 rounded-full">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">AT</div>
                         <span>Ana Torres</span>
                       </div>
                     </td>
@@ -357,7 +788,7 @@
                   <tr class="border-b border-gray-100 dark:border-gray-700">
                     <td class="py-4 px-4">
                       <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/32?img=2" class="w-8 h-8 rounded-full">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">JP</div>
                         <span>Juan Pérez</span>
                       </div>
                     </td>
@@ -371,7 +802,7 @@
                   <tr>
                     <td class="py-4 px-4">
                       <div class="flex items-center gap-3">
-                        <img src="https://i.pravatar.cc/32?img=3" class="w-8 h-8 rounded-full">
+                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold">DF</div>
                         <span>Droguería Famacenter</span>
                       </div>
                     </td>
@@ -392,58 +823,58 @@
         <div id="ventas" class="seccion hidden animate-fade-in">
           <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
             <span>📊</span>
-            Análisis de Ventas
+            Análisis Detallado de Ventas
           </h2>
           
           <!-- KPIs de Ventas -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Producto Estrella</h4>
-              <p class="text-2xl font-bold">Dashboards</p>
-              <p class="text-sm opacity-75">45 unidades vendidas</p>
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Ticket Promedio</h4>
+                  <span class="text-2xl">💰</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">$1,847</p>
+                <p class="text-xs opacity-75">+8.3% vs mes anterior</p>
+              </div>
             </div>
-            <div class="bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Ingresos por Ventas</h4>
-              <p class="text-2xl font-bold">$75,120</p>
-              <p class="text-sm opacity-75">+15% vs mes anterior</p>
+            <div class="bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Tasa de Conversión</h4>
+                  <span class="text-2xl">🎯</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">24.8%</p>
+                <p class="text-xs opacity-75">+2.1% mejora</p>
+              </div>
             </div>
-            <div class="bg-gradient-to-r from-pink-500 to-rose-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Nuevos Clientes</h4>
-              <p class="text-2xl font-bold">135</p>
-              <p class="text-sm opacity-75">+8 esta semana</p>
+            <div class="bg-gradient-to-r from-pink-500 to-rose-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Producto Estrella</h4>
+                  <span class="text-2xl">⭐</span>
+                </div>
+                <p class="text-lg font-bold mb-1">Dashboards</p>
+                <p class="text-xs opacity-75">45 unidades este mes</p>
+              </div>
             </div>
-            <div class="bg-gradient-to-r from-amber-500 to-orange-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Crecimiento</h4>
-              <p class="text-2xl font-bold">+12.5%</p>
-              <p class="text-sm opacity-75">Tendencia positiva</p>
+            <div class="bg-gradient-to-r from-amber-500 to-orange-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Proyección Mes</h4>
+                  <span class="text-2xl">🚀</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">$4,950</p>
+                <p class="text-xs opacity-75">Basado en tendencia actual</p>
+              </div>
             </div>
           </div>
           
-          <!-- Gráficas de Ventas -->
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
-                <span>🧩</span>
-                Participación por Categoría
-              </h3>
-              <canvas id="categoriasVentasChart" style="height: 300px;"></canvas>
-            </div>
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
-                <span>📦</span>
-                Productos Más Vendidos
-              </h3>
-              <canvas id="productosVendidosChart" style="height: 300px;"></canvas>
-            </div>
-          </div>
-          
-          <!-- Evolución de Ventas -->
-          <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl mb-8 card-hover">
-            <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
-              <span>📈</span>
-              Evolución de Ventas (6 meses)
-            </h3>
-            <canvas id="ventasLineaChart" style="height: 300px;"></canvas>
+          <!-- Placeholder para contenido adicional de ventas -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center">
+            <div class="text-6xl mb-4">📊</div>
+            <h3 class="text-xl font-semibold mb-2">Análisis Avanzado de Ventas</h3>
+            <p class="text-gray-600 dark:text-gray-400">Gráficas detalladas, análisis de margen, tendencias y más funcionalidades coming soon...</p>
           </div>
         </div>
 
@@ -456,291 +887,204 @@
           
           <!-- KPIs de Clientes -->
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-            <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Clientes Activos</h4>
-              <p class="text-2xl font-bold">108</p>
-              <p class="text-sm opacity-75">+5% vs mes anterior</p>
+            <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Clientes Activos</h4>
+                  <span class="text-2xl">✅</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">108</p>
+                <p class="text-xs opacity-75">+5% vs mes anterior</p>
+              </div>
             </div>
-            <div class="bg-gradient-to-r from-blue-500 to-cyan-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Clientes Nuevos</h4>
-              <p class="text-2xl font-bold">35</p>
-              <p class="text-sm opacity-75">Meta: 40 clientes</p>
+            <div class="bg-gradient-to-r from-blue-500 to-cyan-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Clientes Nuevos</h4>
+                  <span class="text-2xl">🆕</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">35</p>
+                <p class="text-xs opacity-75">Meta: 40 clientes</p>
+              </div>
             </div>
-            <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Tasa de Retención</h4>
-              <p class="text-2xl font-bold">68%</p>
-              <p class="text-sm opacity-75">+3% mejora</p>
+            <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Tasa de Retención</h4>
+                  <span class="text-2xl">🔄</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">68%</p>
+                <p class="text-xs opacity-75">+3% mejora</p>
+              </div>
             </div>
-            <div class="bg-gradient-to-r from-red-500 to-pink-600 p-6 rounded-2xl shadow-xl text-white card-hover">
-              <h4 class="text-sm opacity-90 mb-2">Clientes Inactivos</h4>
-              <p class="text-2xl font-bold">22</p>
-              <p class="text-sm opacity-75">Necesitan seguimiento</p>
+            <div class="bg-gradient-to-r from-red-500 to-pink-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Clientes Inactivos</h4>
+                  <span class="text-2xl">⚠️</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">22</p>
+                <p class="text-xs opacity-75">Necesitan seguimiento</p>
+              </div>
             </div>
           </div>
           
           <!-- Gráficas de Clientes -->
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
             <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
-                <span>📊</span>
-                Clientes por Tipo
-              </h3>
-              <canvas id="clientesTipoChart" style="height: 300px;"></canvas>
-            </div>
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <h3 class="text-lg font-semibold mb-6 flex items-center gap-2">
-                <span>📍</span>
-                Clientes por Ciudad
-              </h3>
-              <canvas id="clientesRegionChart" style="height: 300px;"></canvas>
-            </div>
-          </div>
-        </div>
-
-        <!-- ░░░ SECCIÓN 4: CONFIGURACIÓN ░░░ -->
-        <div id="configuracion" class="seccion hidden animate-fade-in">
-          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
-            <span>⚙️</span>
-            Configuración del Sistema
-          </h2>
-          
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white text-xl">🎨</span>
-                </div>
-                <h3 class="text-lg font-semibold">Personalización</h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">Personaliza la apariencia y configuración del dashboard</p>
-              <div class="space-y-4">
-                <div class="flex items-center justify-between">
-                  <span class="text-sm">Tema Oscuro</span>
-                  <button onclick="toggleTema()" class="w-12 h-6 bg-gray-300 dark:bg-blue-600 rounded-full relative transition-colors">
-                    <div class="w-4 h-4 bg-white rounded-full shadow-md transform transition-transform dark:translate-x-6 translate-x-1 mt-1"></div>
-                  </button>
-                </div>
-                <div class="flex items-center justify-between">
-                  <span class="text-sm">Notificaciones</span>
-                  <button class="w-12 h-6 bg-blue-600 rounded-full relative">
-                    <div class="w-4 h-4 bg-white rounded-full shadow-md transform translate-x-6 mt-1"></div>
-                  </button>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-green-500 to-emerald-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white text-xl">🔐</span>
-                </div>
-                <h3 class="text-lg font-semibold">Seguridad</h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">Configuración de seguridad y acceso</p>
-              <div class="space-y-3">
-                <button class="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
-                  Cambiar contraseña
-                </button>
-                <button class="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
-                  Autenticación 2FA
-                </button>
-                <button class="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors">
-                  Sesiones activas
-                </button>
-              </div>
-            </div>
-            
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white text-xl">🧩</span>
-                </div>
-                <h3 class="text-lg font-semibold">Integraciones</h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">Conecta con herramientas externas</p>
-              <div class="space-y-3">
-                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <span class="text-sm">Google Sheets</span>
-                  <span class="text-green-500 text-sm">●</span>
-                </div>
-                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <span class="text-sm">WhatsApp API</span>
-                  <span class="text-red-500 text-sm">●</span>
-                </div>
-                <div class="flex items-center justify-between p-3 bg-gray-50 dark:bg-gray-700 rounded-lg">
-                  <span class="text-sm">Email Marketing</span>
-                  <span class="text-green-500 text-sm">●</span>
-                </div>
-              </div>
-            </div>
-            
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white text-xl">📊</span>
-                </div>
-                <h3 class="text-lg font-semibold">Exportar Datos</h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">Descarga reportes y datos</p>
-              <div class="space-y-3">
-                <button onclick="exportarDatos('excel')" class="w-full p-3 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors">
-                  Exportar a Excel
-                </button>
-                <button onclick="exportarDatos('pdf')" class="w-full p-3 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-colors">
-                  Generar PDF
-                </button>
-                <button onclick="exportarDatos('csv')" class="w-full p-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                  Descargar CSV
-                </button>
-              </div>
-            </div>
-            
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-indigo-500 to-purple-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white text-xl">📈</span>
-                </div>
-                <h3 class="text-lg font-semibold">Configurar Métricas</h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">Personaliza los KPIs mostrados</p>
-              <div class="space-y-3">
-                <label class="flex items-center gap-3">
-                  <input type="checkbox" checked class="rounded">
-                  <span class="text-sm">Ventas mensuales</span>
-                </label>
-                <label class="flex items-center gap-3">
-                  <input type="checkbox" checked class="rounded">
-                  <span class="text-sm">Nuevos clientes</span>
-                </label>
-                <label class="flex items-center gap-3">
-                  <input type="checkbox" class="rounded">
-                  <span class="text-sm">Inventario bajo</span>
-                </label>
-                <label class="flex items-center gap-3">
-                  <input type="checkbox" checked class="rounded">
-                  <span class="text-sm">Crecimiento</span>
-                </label>
-              </div>
-            </div>
-            
-            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
-              <div class="flex items-center gap-4 mb-4">
-                <div class="w-12 h-12 bg-gradient-to-r from-pink-500 to-rose-500 rounded-lg flex items-center justify-center">
-                  <span class="text-white text-xl">🎯</span>
-                </div>
-                <h3 class="text-lg font-semibold">Metas y Objetivos</h3>
-              </div>
-              <p class="text-gray-600 dark:text-gray-400 mb-4">Establece objetivos de negocio</p>
-              <div class="space-y-4">
-                <div>
-                  <label class="text-sm text-gray-600 dark:text-gray-400">Meta de ventas mensual</label>
-                  <input type="number" value="5000" class="w-full mt-1 p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                </div>
-                <div>
-                  <label class="text-sm text-gray-600 dark:text-gray-400">Nuevos clientes objetivo</label>
-                  <input type="number" value="40" class="w-full mt-1 p-2 border rounded-lg dark:bg-gray-700 dark:border-gray-600">
-                </div>
-                <button class="w-full p-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors">
-                  Guardar Metas
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-  </div>
-
-  <!-- ▒▒▒ SCRIPTS MEJORADOS ▒▒▒ -->
-  <script>
-    // ░░░ SISTEMA DE DATOS DINÁMICO ░░░
-    const DashboardData = {
-      // Datos principales
-      kpis: {
-        ventasMes: 4100,
-        ingresosTotales: 15900,
-        clientesNuevos: 35,
-        crecimiento: 12.5
-      },
-      
-      // Datos para gráficas
-      ventasMensuales: [1200, 1900, 3000, 2500, 3200, 4100],
-      productosDistribucion: [30, 45, 20],
-      clientesPorTipo: [40, 35, 25],
-      clientesPorRegion: [20, 15, 10, 5],
-      
-      // Transacciones
-      transacciones: [
-        { cliente: "Ana Torres", producto: "Paquete Logístico", monto: 1200, fecha: "2025-06-22", estado: "Completado" },
-        { cliente: "Juan Pérez", producto: "Software BI", monto: 890, fecha: "2025-06-21", estado: "Pendiente" },
-        { cliente: "Droguería Famacenter", producto: "Automatización DILO", monto: 2500, fecha: "2025-06-20", estado: "Completado" }
-      ]
-    };
-
-    // ░░░ SISTEMA DE NAVEGACIÓN MEJORADO ░░░
-    let charts = {};
-    
-    function cambiarSeccion(seccionId) {
-      // Ocultar todas las secciones
-      document.querySelectorAll('.seccion').forEach(seccion => {
-        seccion.classList.add('hidden');
-      });
-      
-      // Remover clase activa de todos los nav items
-      document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.remove('active');
-      });
-      
-      // Mostrar sección seleccionada con animación
-      const seccionTarget = document.getElementById(seccionId);
-      seccionTarget.classList.remove('hidden');
-      seccionTarget.classList.add('animate-fade-in');
-      
-      // Activar nav item correspondiente
-      document.getElementById(`nav-${seccionId}`).classList.add('active');
-      
-      // Inicializar gráficas específicas si es necesario
-      setTimeout(() => {
-        if (seccionId === 'ventas') {
-          inicializarGraficasVentas();
-        } else if (seccionId === 'clientes') {
-          inicializarGraficasClientes();
+              <h3 class="text-lg font-semibol + value.toLocaleString();
+                    }
+                  }
+                }
+              }
+            }
+          });
+          console.log('✅ Gráfica de ventas creada');
+        } catch (error) {
+          console.error('❌ Error creando gráfica de ventas:', error);
+          document.getElementById('ventasChart-placeholder').classList.remove('hidden');
+          ctxVentas.style.display = 'none';
         }
-      }, 100);
+      }
+
+      // Gráfica de Distribución por Producto
+      const ctxProductos = document.getElementById('productosChart');
+      if (ctxProductos) {
+        try {
+          chartsInstances.productosDashboard = new Chart(ctxProductos, {
+            type: 'doughnut',
+            data: {
+              labels: DashboardData.productosDistribucion.labels,
+              datasets: [{
+                data: DashboardData.productosDistribucion.valores,
+                backgroundColor: DashboardData.productosDistribucion.colores,
+                borderWidth: 3,
+                borderColor: isDark ? '#1f2937' : '#ffffff'
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'bottom',
+                  labels: {
+                    color: textColor,
+                    padding: 20,
+                    usePointStyle: true
+                  }
+                }
+              },
+              cutout: '60%'
+            }
+          });
+          console.log('✅ Gráfica de productos creada');
+        } catch (error) {
+          console.error('❌ Error creando gráfica de productos:', error);
+          document.getElementById('productosChart-placeholder').classList.remove('hidden');
+          ctxProductos.style.display = 'none';
+        }
+      }
     }
 
-    // ░░░ TOGGLE DE TEMA MEJORADO ░░░
+    // ░░░ GRÁFICAS DE CLIENTES ░░░
+    function inicializarGraficasClientes() {
+      const isDark = document.documentElement.classList.contains('dark');
+      const textColor = isDark ? '#f9fafb' : '#1f2937';
+
+      // Limpiar gráficas existentes
+      if (chartsInstances.clientesTipo) chartsInstances.clientesTipo.destroy();
+      if (chartsInstances.clientesRegion) chartsInstances.clientesRegion.destroy();
+
+      // Gráfica de Clientes por Tipo
+      const ctxTipo = document.getElementById('clientesTipoChart');
+      if (ctxTipo) {
+        try {
+          chartsInstances.clientesTipo = new Chart(ctxTipo, {
+            type: 'doughnut',
+            data: {
+              labels: DashboardData.clientesData.tipos.labels,
+              datasets: [{
+                data: DashboardData.clientesData.tipos.valores,
+                backgroundColor: DashboardData.clientesData.tipos.colores,
+                borderWidth: 3,
+                borderColor: isDark ? '#1f2937' : '#ffffff'
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: {
+                legend: {
+                  position: 'bottom',
+                  labels: { color: textColor, padding: 20, usePointStyle: true }
+                }
+              },
+              cutout: '60%'
+            }
+          });
+          console.log('✅ Gráfica de tipos de cliente creada');
+        } catch (error) {
+          console.error('❌ Error creando gráfica de tipos:', error);
+          document.getElementById('clientesTipoChart-placeholder').classList.remove('hidden');
+          ctxTipo.style.display = 'none';
+        }
+      }
+
+      // Gráfica de Clientes por Región
+      const ctxRegion = document.getElementById('clientesRegionChart');
+      if (ctxRegion) {
+        try {
+          chartsInstances.clientesRegion = new Chart(ctxRegion, {
+            type: 'bar',
+            data: {
+              labels: DashboardData.clientesData.regiones.labels,
+              datasets: [{
+                label: 'Clientes',
+                data: DashboardData.clientesData.regiones.valores,
+                backgroundColor: DashboardData.clientesData.regiones.colores,
+                borderRadius: 6
+              }]
+            },
+            options: {
+              responsive: true,
+              maintainAspectRatio: false,
+              plugins: { legend: { display: false } },
+              scales: {
+                x: { ticks: { color: textColor } },
+                y: { ticks: { color: textColor } }
+              }
+            }
+          });
+          console.log('✅ Gráfica de regiones creada');
+        } catch (error) {
+          console.error('❌ Error creando gráfica de regiones:', error);
+          document.getElementById('clientesRegionChart-placeholder').classList.remove('hidden');
+          ctxRegion.style.display = 'none';
+        }
+      }
+    }
+
+    // ░░░ TOGGLE DE TEMA ░░░
     function toggleTema() {
       document.documentElement.classList.toggle('dark');
       const isDark = document.documentElement.classList.contains('dark');
       document.getElementById('theme-icon').textContent = isDark ? '☀️' : '🌙';
       
-      // Guardar preferencia
       localStorage.setItem('darkMode', isDark);
       
-      // Actualizar gráficas con nuevo tema
-      setTimeout(actualizarTemasGraficas, 100);
+      // Reinicializar gráficas con nuevo tema
+      setTimeout(() => {
+        const seccionActiva = document.querySelector('.seccion:not(.hidden)');
+        if (seccionActiva) {
+          inicializarGraficasSeccion(seccionActiva.id);
+        }
+      }, 100);
     }
 
     // ░░░ FUNCIÓN DE EXPORTACIÓN ░░░
     function exportarDatos(formato = 'excel') {
-      // Mostrar loading
-      const loadingToast = mostrarToast('Generando archivo...', 'info');
-      
-      setTimeout(() => {
-        loadingToast.remove();
-        mostrarToast(`Archivo ${formato.toUpperCase()} descargado exitosamente`, 'success');
-        
-        // Simular descarga
-        const data = JSON.stringify(DashboardData, null, 2);
-        const blob = new Blob([data], { type: 'application/json' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = `dashboard-dlogia-${new Date().getTime()}.${formato === 'excel' ? 'xlsx' : formato}`;
-        a.click();
-        URL.revokeObjectURL(url);
-      }, 1500);
+      mostrarToast('Función de exportación disponible en versión completa', 'info');
     }
 
     // ░░░ SISTEMA DE NOTIFICACIONES ░░░
@@ -765,322 +1109,574 @@
       return toast;
     }
 
-    // ░░░ INICIALIZACIÓN DE GRÁFICAS PRINCIPALES ░░░
-    function inicializarGraficasPrincipales() {
-      // Configuración común para todas las gráficas
-      const isDark = document.documentElement.classList.contains('dark');
-      const textColor = isDark ? '#f9fafb' : '#1f2937';
-      const gridColor = isDark ? '#374151' : '#e5e7eb';
-
-      // Gráfica de Ventas Mensuales
-      const ctxVentas = document.getElementById('ventasChart');
-      charts.ventas = new Chart(ctxVentas, {
-        type: 'line',
-        data: {
-          labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-          datasets: [{
-            label: 'Ventas ($)',
-            data: DashboardData.ventasMensuales,
-            backgroundColor: 'rgba(59, 130, 246, 0.1)',
-            borderColor: '#3b82f6',
-            borderWidth: 3,
-            fill: true,
-            tension: 0.4,
-            pointBackgroundColor: '#3b82f6',
-            pointBorderColor: '#ffffff',
-            pointBorderWidth: 2,
-            pointRadius: 6
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: { display: false },
-            tooltip: {
-              backgroundColor: isDark ? '#1f2937' : '#ffffff',
-              titleColor: textColor,
-              bodyColor: textColor,
-              borderColor: '#3b82f6',
-              borderWidth: 1,
-              cornerRadius: 8
-            }
-          },
-          scales: {
-            x: {
-              grid: { color: gridColor, display: false },
-              ticks: { color: textColor }
-            },
-            y: {
-              grid: { color: gridColor },
-              ticks: { color: textColor }
-            }
-          },
-          interaction: {
-            intersect: false,
-            mode: 'index'
-          }
-        }
-      });
-
-      // Gráfica de Distribución por Producto
-      const ctxProductos = document.getElementById('productosChart');
-      charts.productos = new Chart(ctxProductos, {
-        type: 'doughnut',
-        data: {
-          labels: ['Páginas Web', 'Dashboards', 'Automatizaciones'],
-          datasets: [{
-            data: DashboardData.productosDistribucion,
-            backgroundColor: ['#8b5cf6', '#10b981', '#f59e0b'],
-            borderWidth: 3,
-            borderColor: isDark ? '#1f2937' : '#ffffff'
-          }]
-        },
-        options: {
-          responsive: true,
-          maintainAspectRatio: false,
-          plugins: {
-            legend: {
-              position: 'bottom',
-              labels: {
-                color: textColor,
-                padding: 20,
-                usePointStyle: true
-              }
-            },
-            tooltip: {
-              backgroundColor: isDark ? '#1f2937' : '#ffffff',
-              titleColor: textColor,
-              bodyColor: textColor,
-              borderColor: '#3b82f6',
-              borderWidth: 1
-            }
-          },
-          cutout: '60%'
-        }
-      });
-    }
-
-    // ░░░ GRÁFICAS DE VENTAS ░░░
-    function inicializarGraficasVentas() {
-      const isDark = document.documentElement.classList.contains('dark');
-      const textColor = isDark ? '#f9fafb' : '#1f2937';
-
-      // Limpiar gráficas existentes
-      if (charts.categoriasVentas) charts.categoriasVentas.destroy();
-      if (charts.productosVendidos) charts.productosVendidos.destroy();
-      if (charts.ventasLinea) charts.ventasLinea.destroy();
-
-      // Gráfica de Categorías (Pie)
-      const ctxCategorias = document.getElementById('categoriasVentasChart');
-      if (ctxCategorias) {
-        charts.categoriasVentas = new Chart(ctxCategorias, {
-          type: 'pie',
-          data: {
-            labels: ['Páginas Web', 'Dashboards', 'Automatizaciones'],
-            datasets: [{
-              data: [45, 30, 25],
-              backgroundColor: ['#3b82f6', '#10b981', '#f59e0b']
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: 'bottom',
-                labels: { color: textColor }
-              }
-            }
-          }
-        });
-      }
-
-      // Gráfica de Productos Vendidos (Bar)
-      const ctxProductosVendidos = document.getElementById('productosVendidosChart');
-      if (ctxProductosVendidos) {
-        charts.productosVendidos = new Chart(ctxProductosVendidos, {
-          type: 'bar',
-          data: {
-            labels: ['Páginas Web', 'Dashboards', 'Automatizaciones'],
-            datasets: [{
-              data: [30, 45, 25],
-              backgroundColor: ['#3b82f6', '#10b981', '#f59e0b']
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false }
-            },
-            scales: {
-              x: { ticks: { color: textColor } },
-              y: { ticks: { color: textColor } }
-            }
-          }
-        });
-      }
-
-      // Gráfica de Línea de Ventas
-      const ctxVentasLinea = document.getElementById('ventasLineaChart');
-      if (ctxVentasLinea) {
-        charts.ventasLinea = new Chart(ctxVentasLinea, {
-          type: 'line',
-          data: {
-            labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
-            datasets: [{
-              data: DashboardData.ventasMensuales,
-              borderColor: '#3b82f6',
-              backgroundColor: 'rgba(59, 130, 246, 0.1)',
-              fill: true,
-              tension: 0.4
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false }
-            },
-            scales: {
-              x: { ticks: { color: textColor } },
-              y: { ticks: { color: textColor } }
-            }
-          }
-        });
-      }
-    }
-
-    // ░░░ GRÁFICAS DE CLIENTES ░░░
-    function inicializarGraficasClientes() {
-      const isDark = document.documentElement.classList.contains('dark');
-      const textColor = isDark ? '#f9fafb' : '#1f2937';
-
-      // Limpiar gráficas existentes
-      if (charts.clientesTipo) charts.clientesTipo.destroy();
-      if (charts.clientesRegion) charts.clientesRegion.destroy();
-
-      // Gráfica de Clientes por Tipo
-      const ctxClientesTipo = document.getElementById('clientesTipoChart');
-      if (ctxClientesTipo) {
-        charts.clientesTipo = new Chart(ctxClientesTipo, {
-          type: 'doughnut',
-          data: {
-            labels: ['Empresarial', 'Emprendedores', 'Individual'],
-            datasets: [{
-              data: DashboardData.clientesPorTipo,
-              backgroundColor: ['#10b981', '#3b82f6', '#f59e0b']
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                position: 'bottom',
-                labels: { color: textColor }
-              }
-            }
-          }
-        });
-      }
-
-      // Gráfica de Clientes por Región
-      const ctxClientesRegion = document.getElementById('clientesRegionChart');
-      if (ctxClientesRegion) {
-        charts.clientesRegion = new Chart(ctxClientesRegion, {
-          type: 'bar',
-          data: {
-            labels: ['Bogotá', 'Medellín', 'Cali', 'Otras'],
-            datasets: [{
-              data: DashboardData.clientesPorRegion,
-              backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444']
-            }]
-          },
-          options: {
-            responsive: true,
-            maintainAspectRatio: false,
-            plugins: {
-              legend: { display: false }
-            },
-            scales: {
-              x: { ticks: { color: textColor } },
-              y: { ticks: { color: textColor } }
-            }
-          }
-        });
-      }
-    }
-
-    // ░░░ ACTUALIZAR TEMAS DE GRÁFICAS ░░░
-    function actualizarTemasGraficas() {
-      Object.values(charts).forEach(chart => {
-        if (chart && chart.update) {
-          chart.update('none');
-        }
-      });
-    }
-
-    // ░░░ ACTUALIZACIÓN AUTOMÁTICA DE DATOS ░░░
-    function actualizarDatos() {
-      // Simular actualización de datos en tiempo real
-      const variacion = () => Math.random() * 0.1 - 0.05; // ±5%
-      
-      DashboardData.kpis.ventasMes += Math.round(DashboardData.kpis.ventasMes * variacion());
-      DashboardData.kpis.ingresosTotales += Math.round(DashboardData.kpis.ingresosTotales * variacion());
-      
-      // Actualizar elementos DOM
-      document.getElementById('kpi-ventas-mes').textContent = `${DashboardData.kpis.ventasMes.toLocaleString()}`;
-      document.getElementById('kpi-ingresos').textContent = `${DashboardData.kpis.ingresosTotales.toLocaleString()}`;
-    }
-
-    // ░░░ INICIALIZACIÓN ░░░
+    // ░░░ INICIALIZACIÓN PRINCIPAL ░░░
     document.addEventListener('DOMContentLoaded', function() {
+      console.log('🚀 Inicializando Dashboard PRO D\'LOGIA...');
+      
       // Ocultar loading screen
       setTimeout(() => {
-        document.getElementById('loading-screen').style.opacity = '0';
-        setTimeout(() => {
-          document.getElementById('loading-screen').style.display = 'none';
-        }, 500);
-      }, 1000);
+        const loadingScreen = document.getElementById('loading-screen');
+        if (loadingScreen) {
+          loadingScreen.style.opacity = '0';
+          setTimeout(() => {
+            loadingScreen.style.display = 'none';
+          }, 500);
+        }
+      }, 1500);
 
       // Verificar tema guardado
       const savedTheme = localStorage.getItem('darkMode');
       if (savedTheme === 'true') {
         document.documentElement.classList.add('dark');
-        document.getElementById('theme-icon').textContent = '☀️';
+        const themeIcon = document.getElementById('theme-icon');
+        if (themeIcon) themeIcon.textContent = '☀️';
       }
 
-      // Inicializar gráficas principales
-      setTimeout(inicializarGraficasPrincipales, 100);
-
-      // Actualizar datos cada 30 segundos
-      setInterval(actualizarDatos, 30000);
+      // Inicializar gráficas del dashboard principal
+      setTimeout(() => {
+        try {
+          inicializarGraficasDashboard();
+        } catch (error) {
+          console.warn('⚠️ Error inicial con gráficas, mostrando placeholders');
+          mostrarPlaceholders('dashboard');
+        }
+      }, 2000);
 
       // Mostrar notificación de bienvenida
       setTimeout(() => {
         mostrarToast('¡Bienvenido al Dashboard PRO de D\'LOGIA!', 'success');
-      }, 1500);
+      }, 2500);
+
+      console.log('✅ Dashboard inicializado correctamente');
     });
 
-    // ░░░ RESPONSIVE MOBILE MENU ░░░
-    function toggleMobileMenu() {
-      const sidebar = document.querySelector('aside');
-      sidebar.classList.toggle('hidden');
-    }
+    // ░░░ MANEJO DE ERRORES GLOBAL ░░░
+    window.addEventListener('error', function(e) {
+      console.error('❌ Error en Dashboard:', e.error);
+    });
 
-    // ░░░ BÚSQUEDA EN TABLAS ░░░
-    function filtrarTabla(input, tablaId) {
-      const filtro = input.value.toLowerCase();
-      const tabla = document.getElementById(tablaId);
-      const filas = tabla.getElementsByTagName('tr');
-      
-      for (let i = 1; i < filas.length; i++) {
-        const textoFila = filas[i].textContent.toLowerCase();
-        filas[i].style.display = textoFila.includes(filtro) ? '' : 'none';
-      }
-    }
+    console.log('📊 Dashboard PRO D\'LOGIA - Sistema cargado');
   </script>
 </body>
-</html>
+</html><!DOCTYPE html>
+<html lang="es" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard PRO – D'LOGIA</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Chart.js - Versión estable -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <script>
+    // Configuración de Tailwind
+    tailwind.config = { 
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            'sans': ['Inter', 'system-ui', 'sans-serif']
+          },
+          animation: {
+            'fade-in': 'fadeIn 0.5s ease-in-out',
+            'slide-up': 'slideUp 0.3s ease-out'
+          }
+        }
+      }
+    };
+  </script>
+  
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+    
+    .nav-item {
+      transition: all 0.2s ease;
+      position: relative;
+    }
+    
+    .nav-item:hover {
+      background: rgba(59, 130, 246, 0.1);
+      border-radius: 8px;
+    }
+    
+    .nav-item.active {
+      background: rgba(59, 130, 246, 0.2);
+      border-radius: 8px;
+      font-weight: 600;
+    }
+    
+    .loading-spinner {
+      border: 3px solid rgba(59, 130, 246, 0.3);
+      border-top: 3px solid #3b82f6;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+    .metric-card {
+      background: linear-gradient(135deg, var(--tw-gradient-from), var(--tw-gradient-to));
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .metric-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    .metric-card:hover::before {
+      left: 100%;
+    }
+    
+    .data-table tr:hover {
+      background: rgba(59, 130, 246, 0.05);
+      transition: all 0.2s ease;
+    }
+    
+    .export-btn {
+      background: linear-gradient(45deg, #10b981, #059669);
+      transition: all 0.3s ease;
+    }
+    
+    .export-btn:hover {
+      background: linear-gradient(45deg, #059669, #047857);
+      transform: translateY(-2px);
+    }
+
+    /* Fallback para cuando no cargan las gráficas */
+    .chart-container {
+      position: relative;
+      min-height: 280px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .chart-placeholder {
+      color: #6b7280;
+      text-align: center;
+      padding: 2rem;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 text-gray-800 dark:text-white transition-colors duration-300 font-sans">
+  
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="fixed inset-0 bg-white dark:bg-gray-900 z-50 flex items-center justify-center">
+    <div class="text-center">
+      <div class="loading-spinner mx-auto mb-4"></div>
+      <h2 class="text-xl font-semibold text-gray-800 dark:text-white">Cargando Dashboard...</h2>
+    </div>
+  </div>
+
+  <div class="flex h-screen">
+    <!-- ▒▒▒ SIDEBAR ▒▒▒ -->
+    <aside class="w-64 bg-white dark:bg-gray-800 border-r border-gray-200 dark:border-gray-700 hidden md:flex flex-col p-6 shadow-xl relative overflow-hidden">
+      <!-- Logo -->
+      <div class="mb-10 animate-fade-in">
+        <h2 class="text-2xl font-bold flex items-center gap-3">
+          <div class="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
+            <span class="text-white font-bold text-lg">D</span>
+          </div>
+          <span class="gradient-text bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">D'LOGIA</span>
+        </h2>
+        <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 ml-13">Dashboard Professional</p>
+      </div>
+      
+      <!-- Navigation -->
+      <nav class="flex flex-col gap-2 text-sm flex-1">
+        <a href="#" onclick="cambiarSeccion('dashboard')" id="nav-dashboard" class="nav-item p-3 rounded-lg flex items-center gap-3 active">
+          <span class="text-lg">📊</span>
+          <span>Dashboard</span>
+        </a>
+        <a href="#" onclick="cambiarSeccion('ventas')" id="nav-ventas" class="nav-item p-3 rounded-lg flex items-center gap-3">
+          <span class="text-lg">🛒</span>
+          <span>Análisis de Ventas</span>
+        </a>
+        <a href="#" onclick="cambiarSeccion('clientes')" id="nav-clientes" class="nav-item p-3 rounded-lg flex items-center gap-3">
+          <span class="text-lg">👥</span>
+          <span>Gestión de Clientes</span>
+        </a>
+        <a href="#" onclick="cambiarSeccion('inventario')" id="nav-inventario" class="nav-item p-3 rounded-lg flex items-center gap-3">
+          <span class="text-lg">📦</span>
+          <span>Inventario</span>
+        </a>
+        <a href="#" onclick="cambiarSeccion('reportes')" id="nav-reportes" class="nav-item p-3 rounded-lg flex items-center gap-3">
+          <span class="text-lg">📈</span>
+          <span>Reportes</span>
+        </a>
+        <a href="#" onclick="cambiarSeccion('configuracion')" id="nav-configuracion" class="nav-item p-3 rounded-lg flex items-center gap-3">
+          <span class="text-lg">⚙️</span>
+          <span>Configuración</span>
+        </a>
+      </nav>
+      
+      <!-- Footer del sidebar -->
+      <div class="mt-auto pt-6 border-t border-gray-200 dark:border-gray-700">
+        <div class="flex items-center gap-3 p-2">
+          <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm font-bold">JC</div>
+          <div class="text-xs">
+            <p class="font-medium">Usuario Admin</p>
+            <p class="text-gray-500">Premium</p>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ▒▒▒ CONTENIDO PRINCIPAL ▒▒▒ -->
+    <main class="flex-1 overflow-y-auto">
+      
+      <!-- ░░░ CABECERA ░░░ -->
+      <header class="bg-white dark:bg-gray-800 border-b border-gray-200 dark:border-gray-700 p-6 shadow-sm">
+        <div class="flex justify-between items-center">
+          <div>
+            <h1 id="titulo-seccion" class="text-3xl font-bold bg-gradient-to-r from-gray-800 to-gray-600 dark:from-white dark:to-gray-300 bg-clip-text text-transparent">
+              Panel de Control
+            </h1>
+            <p id="subtitulo-seccion" class="text-gray-500 dark:text-gray-400 mt-1">Bienvenido de vuelta, aquí tienes un resumen de tu negocio</p>
+          </div>
+          
+          <div class="flex gap-4 items-center">
+            <!-- Controles de exportación -->
+            <button onclick="exportarDatos()" class="export-btn text-white px-4 py-2 rounded-lg text-sm font-medium flex items-center gap-2">
+              <span>📊</span>
+              Exportar
+            </button>
+            
+            <!-- Toggle de tema -->
+            <button onclick="toggleTema()" class="p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+              <span id="theme-icon">🌓</span>
+            </button>
+            
+            <!-- Notificaciones -->
+            <button class="relative p-2 rounded-lg bg-gray-100 dark:bg-gray-700 hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors">
+              <span>🔔</span>
+              <span class="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+            </button>
+            
+            <!-- Avatar del usuario -->
+            <div class="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold cursor-pointer">JC</div>
+          </div>
+        </div>
+      </header>
+
+      <div class="p-6">
+        
+        <!-- ░░░ SECCIÓN 1: DASHBOARD PRINCIPAL ░░░ -->
+        <div id="dashboard" class="seccion animate-fade-in">
+          
+          <!-- 🔹 KPIs Principales -->
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="metric-card card-hover from-blue-500 to-blue-600 p-6 rounded-2xl shadow-xl text-white relative overflow-hidden">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-sm font-medium opacity-90">Ventas del Mes</h3>
+                  <span class="text-2xl">💰</span>
+                </div>
+                <p class="text-3xl font-bold mb-1" id="kpi-ventas-mes">$4,305</p>
+                <p class="text-xs opacity-75">+12% vs mes anterior</p>
+              </div>
+            </div>
+            
+            <div class="metric-card card-hover from-green-500 to-green-600 p-6 rounded-2xl shadow-xl text-white relative overflow-hidden">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-sm font-medium opacity-90">Ingresos Totales</h3>
+                  <span class="text-2xl">📈</span>
+                </div>
+                <p class="text-3xl font-bold mb-1" id="kpi-ingresos">$15,621</p>
+                <p class="text-xs opacity-75">+8.5% crecimiento</p>
+              </div>
+            </div>
+            
+            <div class="metric-card card-hover from-purple-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white relative overflow-hidden">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-sm font-medium opacity-90">Clientes Nuevos</h3>
+                  <span class="text-2xl">👥</span>
+                </div>
+                <p class="text-3xl font-bold mb-1" id="kpi-clientes-nuevos">35</p>
+                <p class="text-xs opacity-75">+5 esta semana</p>
+              </div>
+            </div>
+            
+            <div class="metric-card card-hover from-yellow-500 to-orange-500 p-6 rounded-2xl shadow-xl text-white relative overflow-hidden">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h3 class="text-sm font-medium opacity-90">Crecimiento</h3>
+                  <span class="text-2xl">🚀</span>
+                </div>
+                <p class="text-3xl font-bold mb-1" id="kpi-crecimiento">+12.5%</p>
+                <p class="text-xs opacity-75">Tendencia positiva</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Gráficas Principales -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold flex items-center gap-2">
+                  <span>📈</span>
+                  Ventas Mensuales
+                </h3>
+                <select class="text-sm border rounded-lg px-3 py-1 dark:bg-gray-700">
+                  <option>Últimos 6 meses</option>
+                  <option>Último año</option>
+                </select>
+              </div>
+              <div class="chart-container">
+                <canvas id="ventasChart" width="400" height="280"></canvas>
+                <div id="ventasChart-placeholder" class="chart-placeholder hidden">
+                  <div class="text-4xl mb-2">📈</div>
+                  <p>Gráfica de ventas mensuales</p>
+                  <p class="text-sm text-gray-400">Cargando datos...</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <div class="flex items-center justify-between mb-6">
+                <h3 class="text-lg font-semibold flex items-center gap-2">
+                  <span>🧩</span>
+                  Distribución por Producto
+                </h3>
+                <button class="text-sm text-blue-600 hover:text-blue-800">Ver detalles</button>
+              </div>
+              <div class="chart-container">
+                <canvas id="productosChart" width="400" height="280"></canvas>
+                <div id="productosChart-placeholder" class="chart-placeholder hidden">
+                  <div class="text-4xl mb-2">🧩</div>
+                  <p>Distribución por producto</p>
+                  <p class="text-sm text-gray-400">Cargando datos...</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 🔹 Tabla de Transacciones -->
+          <div class="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 card-hover">
+            <div class="flex flex-col md:flex-row md:items-center justify-between mb-6">
+              <h3 class="text-lg font-semibold flex items-center gap-2 mb-4 md:mb-0">
+                <span>🧾</span>
+                Transacciones Recientes
+              </h3>
+              <div class="flex gap-3">
+                <input type="text" placeholder="Buscar cliente..." 
+                       class="border border-gray-300 dark:border-gray-600 px-4 py-2 rounded-lg text-sm dark:bg-gray-700 focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all">
+                <button class="bg-blue-500 text-white px-4 py-2 rounded-lg text-sm hover:bg-blue-600 transition-colors">
+                  Filtrar
+                </button>
+              </div>
+            </div>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full data-table">
+                <thead>
+                  <tr class="border-b border-gray-200 dark:border-gray-700">
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Cliente</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Producto</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Monto</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Fecha</th>
+                    <th class="text-left py-3 px-4 font-semibold text-gray-600 dark:text-gray-300">Estado</th>
+                  </tr>
+                </thead>
+                <tbody id="tabla-transacciones">
+                  <tr class="border-b border-gray-100 dark:border-gray-700">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">AT</div>
+                        <span>Ana Torres</span>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4">Paquete Logístico</td>
+                    <td class="py-4 px-4 font-semibold text-green-600">$1,200</td>
+                    <td class="py-4 px-4 text-gray-500">2025-06-22</td>
+                    <td class="py-4 px-4">
+                      <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Completado</span>
+                    </td>
+                  </tr>
+                  <tr class="border-b border-gray-100 dark:border-gray-700">
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center text-white text-xs font-bold">JP</div>
+                        <span>Juan Pérez</span>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4">Software BI</td>
+                    <td class="py-4 px-4 font-semibold text-green-600">$890</td>
+                    <td class="py-4 px-4 text-gray-500">2025-06-21</td>
+                    <td class="py-4 px-4">
+                      <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-xs font-medium">Pendiente</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-4">
+                      <div class="flex items-center gap-3">
+                        <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center text-white text-xs font-bold">DF</div>
+                        <span>Droguería Famacenter</span>
+                      </div>
+                    </td>
+                    <td class="py-4 px-4">Automatización DILO</td>
+                    <td class="py-4 px-4 font-semibold text-green-600">$2,500</td>
+                    <td class="py-4 px-4 text-gray-500">2025-06-20</td>
+                    <td class="py-4 px-4">
+                      <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs font-medium">Completado</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- ░░░ SECCIÓN 2: ANÁLISIS DE VENTAS ░░░ -->
+        <div id="ventas" class="seccion hidden animate-fade-in">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>📊</span>
+            Análisis Detallado de Ventas
+          </h2>
+          
+          <!-- KPIs de Ventas -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Ticket Promedio</h4>
+                  <span class="text-2xl">💰</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">$1,847</p>
+                <p class="text-xs opacity-75">+8.3% vs mes anterior</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-green-500 to-teal-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Tasa de Conversión</h4>
+                  <span class="text-2xl">🎯</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">24.8%</p>
+                <p class="text-xs opacity-75">+2.1% mejora</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-pink-500 to-rose-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Producto Estrella</h4>
+                  <span class="text-2xl">⭐</span>
+                </div>
+                <p class="text-lg font-bold mb-1">Dashboards</p>
+                <p class="text-xs opacity-75">45 unidades este mes</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-amber-500 to-orange-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Proyección Mes</h4>
+                  <span class="text-2xl">🚀</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">$4,950</p>
+                <p class="text-xs opacity-75">Basado en tendencia actual</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Placeholder para contenido adicional de ventas -->
+          <div class="bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-xl text-center">
+            <div class="text-6xl mb-4">📊</div>
+            <h3 class="text-xl font-semibold mb-2">Análisis Avanzado de Ventas</h3>
+            <p class="text-gray-600 dark:text-gray-400">Gráficas detalladas, análisis de margen, tendencias y más funcionalidades coming soon...</p>
+          </div>
+        </div>
+
+        <!-- ░░░ SECCIÓN 3: GESTIÓN DE CLIENTES ░░░ -->
+        <div id="clientes" class="seccion hidden animate-fade-in">
+          <h2 class="text-3xl font-bold mb-8 flex items-center gap-3">
+            <span>👥</span>
+            Gestión de Clientes
+          </h2>
+          
+          <!-- KPIs de Clientes -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+            <div class="bg-gradient-to-r from-emerald-500 to-green-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Clientes Activos</h4>
+                  <span class="text-2xl">✅</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">108</p>
+                <p class="text-xs opacity-75">+5% vs mes anterior</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-blue-500 to-cyan-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Clientes Nuevos</h4>
+                  <span class="text-2xl">🆕</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">35</p>
+                <p class="text-xs opacity-75">Meta: 40 clientes</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-violet-500 to-purple-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Tasa de Retención</h4>
+                  <span class="text-2xl">🔄</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">68%</p>
+                <p class="text-xs opacity-75">+3% mejora</p>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-red-500 to-pink-600 p-6 rounded-2xl shadow-xl text-white card-hover metric-card">
+              <div class="relative z-10">
+                <div class="flex items-center justify-between mb-2">
+                  <h4 class="text-sm opacity-90">Clientes Inactivos</h4>
+                  <span class="text-2xl">⚠️</span>
+                </div>
+                <p class="text-2xl font-bold mb-1">22</p>
+                <p class="text-xs opacity-75">Necesitan seguimiento</p>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Gráficas de Clientes -->
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+            <div class="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-xl card-hover">
+              <h3 class="text-lg font-semibol
